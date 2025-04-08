@@ -1,0 +1,85 @@
+{
+  "appliance": "Dishwasher",
+  "overview": {
+    "description": "Repairing a dishwasher can seem like a daunting task, but 80% of dishwasher repairs are rated by our customers as 'Easy' and on average, take less than 15 minutes to complete.",
+    "call_to_action": "Want Mr. Appliance to fix that broken Dishwasher?",
+    "schedule_link": "Schedule Service"
+  },
+  "common_symptoms": [
+    {
+      "symptom": "Noisy",
+      "description": "Learn how to troubleshoot and repair a noisy dishwasher by the type of noise it makes, from the rattle of a pump housing or motor bushings, to a worn washer arm bearing.",
+      "reported_by": "29% of customers"
+    },
+    {
+      "symptom": "Leaking",
+      "description": "Diagnose the reason for your leaking dishwasher, from a worn pump and door seals, to a failed water inlet valve.",
+      "reported_by": "27% of customers"
+    },
+    {
+      "symptom": "Will not start",
+      "description": "Learn how to fix a dishwasher that will not start, by checking a few key components, such as door latch switches, timers, electronic controls, motor relays and thermal fuses.",
+      "reported_by": "18% of customers"
+    },
+    {
+      "symptom": "Door latch failure",
+      "description": "Find out how to fix a dishwasher door latch that isn't working properly by troubleshooting common repair parts like the door latch kit.",
+      "reported_by": "11% of customers"
+    },
+    {
+      "symptom": "Not cleaning dishes properly",
+      "description": "Determine why your dishwasher will not clean properly by troubleshooting parts, like housing gaskets, spray arms, water deliver tubes and filters.",
+      "reported_by": "11% of customers"
+    },
+    {
+      "symptom": "Not draining",
+      "description": "Figure out why your dishwasher will not drain by learning how to test a drain pump motor, timer and drain hose.",
+      "reported_by": "9% of customers"
+    },
+    {
+      "symptom": "Will not fill with water",
+      "description": "Diagnose why your dishwasher will not fill with water by checking and testing a water inlet valve, float switch and door switch.",
+      "reported_by": "2% of customers"
+    },
+    {
+      "symptom": "Will not dispense detergent",
+      "description": "Learn how to repair a dishwasher that will not dispense detergent by testing the bi-metal release, wax motor and timer.",
+      "reported_by": "2% of customers"
+    },
+    {
+      "symptom": "Not drying dishes properly",
+      "description": "Find out how to troubleshoot and repair a dishwasher that will not properly dry dishes, by checking heating elements, high limit thermostats and rinse aid dispensers.",
+      "reported_by": "1% of customers"
+    }
+  ],
+  "troubleshooting_videos": [
+    {
+      "title": "Troubleshooting Problems With Your Dishwasher Door Latch",
+      "url": "https://youtu.be/2Jy2G2FNSWg"
+    },
+    {
+      "title": "Troubleshooting Why the Dishwasher Won't Clean Dishes",
+      "url": "https://youtu.be/-hs-vvHckBw"
+    },
+    {
+      "title": "Troubleshooting Why the Dishwasher Won't Start",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=8ZrtcdtmyEk"
+    },
+    {
+      "title": "Troubleshooting Why Your Dishwasher Is Leaking",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=nbOp93Z5I8k"
+    }
+  ],
+  "available_brands": [
+    "Amana",
+    "Bosch",
+    "Frigidaire",
+    "General Electric",
+    "Kenmore",
+    "KitchenAid",
+    "LG",
+    "Maytag",
+    "Samsung",
+    "Whirlpool"
+  ]
+} 

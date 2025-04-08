@@ -1,0 +1,75 @@
+{
+  "appliance": "Refrigerator",
+  "overview": {
+    "description": "While refrigerator repairs might sound intimidating, 75% of our customers rate them as 'Easy' and most issues can be fixed in under 20 minutes with basic tools.",
+    "call_to_action": "Want Mr. Appliance to fix that broken Refrigerator?",
+    "schedule_link": "Schedule Service"
+  },
+  "common_symptoms": [
+    {
+      "symptom": "Not cooling",
+      "description": "Discover how to troubleshoot a refrigerator that's not cooling by checking components like the condenser coils, evaporator fan, and thermostat.",
+      "reported_by": "35% of customers"
+    },
+    {
+      "symptom": "Ice maker not working",
+      "description": "Learn how to fix an ice maker that has stopped producing ice by testing the water inlet valve, ice maker module, and fill tube.",
+      "reported_by": "22% of customers"
+    },
+    {
+      "symptom": "Water dispenser not working",
+      "description": "Find out why your refrigerator's water dispenser isn't working by checking the water filter, inlet valve, and dispenser actuator.",
+      "reported_by": "14% of customers"
+    },
+    {
+      "symptom": "Leaking water",
+      "description": "Diagnose water leakage issues by inspecting the defrost drain, water tank assembly, and water inlet valve.",
+      "reported_by": "11% of customers"
+    },
+    {
+      "symptom": "Frost buildup",
+      "description": "Troubleshoot excessive frost buildup in the freezer or fridge by checking the defrost heater, thermostat, and door gasket.",
+      "reported_by": "8% of customers"
+    },
+    {
+      "symptom": "Fridge runs constantly",
+      "description": "Fix a refrigerator that runs non-stop by checking the temperature control thermostat, defrost timer, and condenser coils.",
+      "reported_by": "6% of customers"
+    },
+    {
+      "symptom": "Noisy",
+      "description": "Silence a noisy fridge by investigating the evaporator fan motor, condenser fan motor, or compressor noise.",
+      "reported_by": "4% of customers"
+    }
+  ],
+  "troubleshooting_videos": [
+    {
+      "title": "Troubleshooting A Warm Fridge And Freezer",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=I4_tF7SIPuI"
+    },
+    {
+      "title": "Troubleshooting A Warm Fridge And Freezer",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=wqOzCQWoqxw"
+    },
+    {
+      "title": "Troubleshooting Why the Ice Maker Is Not Working",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=I6Sgbo-CB3s"
+    },
+    {
+      "title": "Troubleshooting Why the Water Dispenser Is Not Working",
+      "url": "https://www.youtube.com/watch?feature=player_embedded&v=Q8PMGWyvry4"
+    }
+  ],
+  "available_brands": [
+    "Amana",
+    "Bosch",
+    "Frigidaire",
+    "General Electric",
+    "Kenmore",
+    "KitchenAid",
+    "LG",
+    "Maytag",
+    "Samsung",
+    "Whirlpool"
+  ]
+} 
