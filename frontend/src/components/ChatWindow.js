@@ -19,8 +19,11 @@ function ChatWindow() {
   const [messages, setMessages] = useState(defaultMessage);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [inputError, setInputError] = useState(null);
 
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -30,32 +33,83 @@ function ChatWindow() {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = async (input) => {
-    if (input.trim() !== "") {
-      setIsLoading(true);
-      // Set user message
-      setMessages(prevMessages => [...prevMessages, { role: "user", content: input }]);
-      setInput("");
+  // Focus input field when component mounts
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
-      try {
-        // Call API & set assistant message
-        const newMessage = await getAIMessage(input);
-        setMessages(prevMessages => [...prevMessages, newMessage]);
-      } catch (error) {
-        console.error('Error:', error);
+  const validateInput = (text) => {
+    if (!text.trim()) {
+      setInputError("Please enter a message");
+      return false;
+    }
+    if (text.length < 3) {
+      setInputError("Message is too short. Please provide more details.");
+      return false;
+    }
+    setInputError(null);
+    return true;
+  };
+
+  const handleSend = async (input) => {
+    if (!validateInput(input)) {
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+    
+    // Set user message
+    setMessages(prevMessages => [...prevMessages, { role: "user", content: input }]);
+    setInput("");
+
+    try {
+      // Call API & set assistant message
+      const newMessage = await getAIMessage(input);
+      
+      // Check if the response contains an error
+      if (newMessage.error) {
+        setError(newMessage.content);
         setMessages(prevMessages => [...prevMessages, {
           role: "assistant",
-          content: "I'm sorry, I encountered an error. Please try again.",
-          relevantParts: []
+          content: newMessage.content,
+          relevantParts: [],
+          isError: true
         }]);
-      } finally {
-        setIsLoading(false);
+      } else {
+        setMessages(prevMessages => [...prevMessages, newMessage]);
       }
+    } catch (error) {
+      console.error('Error:', error);
+      setError("I'm sorry, I encountered an error. Please try again.");
+      setMessages(prevMessages => [...prevMessages, {
+        role: "assistant",
+        content: "I'm sorry, I encountered an error. Please try again.",
+        relevantParts: [],
+        isError: true
+      }]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleExampleClick = (prompt) => {
     setInput(prompt);
+    setInputError(null);
+    // Focus the input field after setting the example
+    setTimeout(() => inputRef.current.focus(), 0);
+  };
+
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+    setInputError(null);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSend(input);
+      e.preventDefault();
+    }
   };
 
   const ProductCard = ({ part }) => (
@@ -95,10 +149,16 @@ function ChatWindow() {
         </div>
       </div>
       <div className="messages-container">
+        {error && (
+          <div className="error-banner">
+            <span className="error-icon">⚠️</span>
+            {error}
+          </div>
+        )}
         {messages.map((message, index) => (
           <div key={index} className={`${message.role}-message-container`}>
             {message.content && (
-              <div className={`message ${message.role}-message`}>
+              <div className={`message ${message.role}-message ${message.isError ? 'error-message' : ''}`}>
                 <div dangerouslySetInnerHTML={{__html: marked(message.content).replace(/<p>|<\/p>/g, "")}}></div>
                 {message.relevantParts && message.relevantParts.length > 0 && (
                   <div className="relevant-parts">
@@ -122,24 +182,24 @@ function ChatWindow() {
         )}
         <div ref={messagesEndRef} />
         <div className="input-area">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type a message..."
-            onKeyPress={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                handleSend(input);
-                e.preventDefault();
-              }
-            }}
-            rows="3"
-          />
+          <div className="input-container">
+            <input
+              ref={inputRef}
+              value={input}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+              placeholder="Type a message..."
+              className={inputError ? "input-error" : ""}
+              disabled={isLoading}
+            />
+            {inputError && <div className="input-error-message">{inputError}</div>}
+          </div>
           <button 
             className="send-button" 
             onClick={() => handleSend(input)}
             disabled={isLoading}
           >
-            Send
+            {isLoading ? "Sending..." : "Send"}
           </button>
         </div>
       </div>
